@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
+	<title>Technical Documentation Page</title>
+</head>
+
+<body>
+	<nav id="navbar">
+		<header>Python Docs</header>
+		<ul>
+			<li><a class="nav-link" href="#Introduction">Introduction</a></li>
+			<li><a class="nav-link" href="#Beginer_guide">Beginer guide</a></li>
+			<li><a class="nav-link" href="#Data_model">Data model</a></li>
+			<li><a class="nav-link" href="#Importing">Importing</a></li>
+			<li><a class="nav-link" href="#Expressions">Expressions</a></li>
+			<li><a class="nav-link" href="#Reference">Reference</a></li>
+		</ul>
+	</nav>
+
+	<main id="main-doc">
+		<section class="main-section" id="Introduction">
+			<h1>Intro</h1>
+			<p>This reference manual describes the Python programming language. It is not intended as a tutorial. Every
+				Python implementation comes with a number of built-in and standard modules. These are documented in The
+				Python Standard Library. A few built-in modules are mentioned when they interact in a significant way
+				with the language definition. Each of these implementations varies in some way from the language as
+				documented in this manual, or introduces specific information beyond what’s covered in the standard
+				Python documentation. Please refer to the implementation-specific documentation to determine what else
+				you need to know about the specific implementation you’re using.</p>
+
+			<li>
+				<h3>CPython</h3>
+				<p>This is the original and most-maintained implementation of Python, written in C. New language
+					features generally appear here first.</p>
+			</li>
+			<li>
+				<h3>Jython</h3>
+				<p>Python implemented in Java. This implementation can be used as a scripting language for Java
+					applications, or can be used to create applications using the Java class libraries. It is also often
+					used to create tests for Java libraries. More information can be found at the Jython website.</p>
+			</li>
+			<li>
+				<h3>Python for .NET</h3>
+				<p>This implementation actually uses the CPython implementation, but is a managed .NET application and
+					makes .NET libraries available. It was created by Brian Lloyd. For more information, see the Python
+					for .NET home page.</p>
+			</li>
+			<li>
+				<h3>IronPython</h3>
+				<p>An alternate Python for .NET. Unlike Python.NET, this is a complete Python implementation that
+					generates IL, and compiles Python code directly to .NET assemblies. It was created by Jim Hugunin,
+					the original creator of Jython. For more information, see the IronPython website.
+				</p>
+			</li>
+			<li>
+				<h3>PyPy</h3>
+				<p> An implementation of Python written completely in Python. It supports several advanced features not
+					found in other implementations like stackless support and a Just in Time compiler. One of the goals
+					of the project is to encourage experimentation with the language itself by making it easier to
+					modify the interpreter (since it is written in Python). Additional information is available on the
+					PyPy project’s home page.
+				</p>
+			</li>
+			<code>name ::= lc_letter (lc_letter | "_")*
+				lc_letter ::= "a"..."z"</code>
+		</section>
+		<section class="main-section" id="Beginer_guide">
+			<p>Python is a clear and powerful object-oriented programming language, comparable to Perl, Ruby, Scheme, or
+				Java.
+
+				Some of Python's notable features:
+
+				Uses an elegant syntax, making the programs you write easier to read.
+				Is an easy-to-use language that makes it simple to get your program working. This makes Python ideal for
+				prototype development and other ad-hoc programming tasks, without compromising maintainability.
+				Comes with a large standard library that supports many common programming tasks such as connecting to
+				web servers, searching text with regular expressions, reading and modifying files.
+				Python's interactive mode makes it easy to test short snippets of code. There's also a bundled
+				development environment called IDLE.
+			</p>
+			<p>Is easily extended by adding new modules implemented in a compiled language such as C or C++.
+				Can also be embedded into an application to provide a programmable interface.
+
+				Runs anywhere, including Mac OS X, Windows, Linux, and Unix, with unofficial builds also available for
+				Android and iOS.
+
+				Is free software in two senses. It doesn't cost anything to download or use Python, or to include it in
+				your application. Python can also be freely modified and re-distributed because while the language is
+				copyrighted it's available under an open-source license.</p>
+		</section>
+		<section class="main-section" id="Data_model">
+			<p>Objects are Python’s abstraction for data. All data in a Python program is represented by objects or by
+				relations between objects. (In a sense, and in conformance to Von Neumann’s model of a “stored program
+				computer,” code is also represented by objects.)
+
+				Every object has an identity, a type and a value. An object’s identity never changes once it has been
+				created; you may think of it as the object’s address in memory. The ‘is’ operator compares the identity
+				of two objects; the id() function returns an integer representing its identity.</p>
+			<p>An object’s type determines the operations that the object supports (e.g., “does it have a length?”) and
+				also defines the possible values for objects of that type. The type() function returns an object’s type
+				(which is an object itself). Like its identity, an object’s type is also unchangeable. 1
+
+				The value of some objects can change. Objects whose value can change are said to be mutable; objects
+				whose value is unchangeable once they are created are called immutable. (The value of an immutable
+				container object that contains a reference to a mutable object can change when the latter’s value is
+				changed; however the container is still considered immutable, because the collection of objects it
+				contains cannot be changed. So, immutability is not strictly the same as having an unchangeable value,
+				it is more subtle.) An object’s mutability is determined by its type; for instance, numbers, strings and
+				tuples are immutable, while dictionaries and lists are mutable.
+
+				Objects are never explicitly destroyed; however, when they become unreachable they may be
+				garbage-collected. An implementation is allowed to postpone garbage collection or omit it altogether —
+				it is a matter of implementation quality how garbage collection is implemented, as long as no objects
+				are collected that are still reachable.</p>
+			<code> object.__lt__(self, other)
+				object.__le__(self, other)
+				object.__eq__(self, other)
+				object.__ne__(self, other)
+				object.__gt__(self, other)
+				object.__ge__(self, other)</code>
+			<code>math.sin()</code>
+		</section>
+		<section class="main-section" id="Importing">
+			<p>Python code in one module gains access to the code in another module by the process of importing it. The
+				import statement is the most common way of invoking the import machinery, but it is not the only way.
+				Functions such as importlib.import_module() and built-in __import__() can also be used to invoke the
+				import machinery.
+
+				The import statement combines two operations; it searches for the named module, then it binds the
+				results of that search to a name in the local scope. The search operation of the import statement is
+				defined as a call to the __import__() function, with the appropriate arguments. The return value of
+				__import__() is used to perform the name binding operation of the import statement. See the import
+				statement for the exact details of that name binding operation.
+
+				A direct call to __import__() performs only the module search and, if found, the module creation
+				operation. While certain side-effects may occur, such as the importing of parent packages, and the
+				updating of various caches (including sys.modules), only the import statement performs a name binding
+				operation.</p>
+			<p>When an import statement is executed, the standard builtin __import__() function is called. Other
+				mechanisms for invoking the import system (such as importlib.import_module()) may choose to bypass
+				__import__() and use their own solutions to implement import semantics.
+
+				When a module is first imported, Python searches for the module and if found, it creates a module object
+				1, initializing it. If the named module cannot be found, a ModuleNotFoundError is raised. Python
+				implements various strategies to search for the named module when the import machinery is invoked. These
+				strategies can be modified and extended by using various hooks described in the sections below.
+
+				Changed in version 3.3: The import system has been updated to fully implement the second phase of PEP
+				302. There is no longer any implicit import machinery - the full import system is exposed through
+				sys.meta_path. In addition, native namespace package support has been implemented (see PEP 420).
+			</p>
+			<code>parent/
+				__init__.py
+				one/
+				__init__.py
+				two/
+				__init__.py
+				three/
+				__init__.py</code>
+		</section>
+		<section class="main-section" id="Expressions">
+			<p>This chapter explains the meaning of the elements of expressions in Python.</p>
+			<p>In this and the following chapters, extended BNF notation will be used to describe syntax, not lexical
+				analysis. When (one alternative of) a syntax rule has the form and no semantics are given, the semantics
+				of this form of name are the same as for othername.</p>
+			<code>name ::= othername</code>
+		</section>
+		<section class="main-section" id="Reference">
+			<header>Reference</header>
+			<article>
+				<ul>
+					<li>
+						All the documentation in this page is taken from
+						<a href="https://docs.python.org/3/" target="_blank">MDN</a>
+					</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+</body>
+
+</html>
